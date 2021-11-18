@@ -1,17 +1,21 @@
+import { useNavigation } from "@react-navigation/core";
 import React, { useState } from "react";
-import { SafeAreaView, View, Image, Text, StyleSheet, Dimensions } from "react-native";
+import { View, Image, Text, StyleSheet, Dimensions, TouchableWithoutFeedback } from "react-native";
 
 const ProductCard = ({item}) => {
+  const {navigate} = useNavigation();
   
 
   return(
-    <View style={styles.cardView}>
-      <Image style={styles.image} source={{uri:item.image}}/>
-      <View style={styles.textView}>
-      <Text style={styles.text1}>{item.title}</Text>
-      <Text style={styles.text2}>{item.price} TL</Text>
+    <TouchableWithoutFeedback onPress={() => navigate("DetailPage", {data: item})}>
+      <View style={styles.cardView}>
+        <Image style={styles.image} source={{uri:item.image}}/>
+        <View style={styles.textView}>
+        <Text style={styles.text1}>{item.title}</Text>
+        <Text style={styles.text2}>{item.price} TL</Text>
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 export default ProductCard

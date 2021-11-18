@@ -10,8 +10,20 @@ const Router = () => {
   return(
    <NavigationContainer>
      <Stack.Navigator>
-       <Stack.Screen name="ProductsPage" component={Products} />
-       <Stack.Screen name="DetailPage" component={Detail}/>
+       <Stack.Screen 
+        name="ProductsPage" 
+        component={Products} 
+        options={{
+          title:"Dukkan",
+          headerTitleAlign:"center", 
+          headerStyle:{backgroundColor:"silver"}}}/>
+       <Stack.Screen 
+        name="DetailPage"
+        component={Detail}
+        options={{
+          title:"Detay Bilgi",
+          headerTitleAlign:"center", 
+          headerStyle:{backgroundColor:"silver"}}}/>
      </Stack.Navigator>
    </NavigationContainer>
   )
